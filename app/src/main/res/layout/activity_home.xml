@@ -32,6 +32,7 @@
         android:id="@+id/topPicksImg"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:onClick="getTopPicks"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="0.75"
