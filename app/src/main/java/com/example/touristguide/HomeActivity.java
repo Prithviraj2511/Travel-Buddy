@@ -13,11 +13,18 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        ImageView img = (ImageView) findViewById(R.id.topPicksImg);
-        img.setOnClickListener(new View.OnClickListener() {
+        ImageView topPicksImg = (ImageView) findViewById(R.id.topPicksImg);
+        topPicksImg.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // your code here
-                getTopPicks();
+                System.out.println("Clicked");
+                topPicksImg.animate().rotationY(topPicksImg.getRotationY()+360).setDuration(300).withEndAction(new Runnable() {
+                    @Override
+                    public void run() {
+                        topPicksImg.animate().alpha(1);
+                        getTopPicks();
+                    }
+                });
             }
         });
     }
