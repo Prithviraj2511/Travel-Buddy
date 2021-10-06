@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.touristguide">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +13,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TouristGuide">
-        <activity android:name=".LocationListing"></activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyD4KfDcLVjVPatpIKtrPXot024Z4UHVZQ8"/>
+
+        <activity
+            android:name=".currentloc"
+            android:exported="true" />
+        <activity android:name=".LocationListing" />
         <activity android:name=".MapActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".SplashScreenActivity">
