@@ -13,15 +13,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TouristGuide">
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyD4KfDcLVjVPatpIKtrPXot024Z4UHVZQ8"/>
 
         <activity
-            android:name=".currentloc"
-            android:exported="true" />
-        <activity android:name=".LocationListing" />
+            android:name=".LocationMap"
+            android:exported="true"
+            android:parentActivityName=".HomeActivity"/>
+        <activity android:name=".Details"
+            android:parentActivityName=".LocationListing"></activity>
+        <activity
+            android:name=".LocationListing"
+            android:parentActivityName=".HomeActivity" />
         <activity android:name=".MapActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".SplashScreenActivity">

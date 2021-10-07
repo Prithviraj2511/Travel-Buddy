@@ -3,6 +3,7 @@ package com.example.touristguide;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -20,7 +21,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 
-public class currentloc extends AppCompatActivity {
+public class LocationMap extends AppCompatActivity {
 
     //Initialize variable
     SupportMapFragment supportMapFragment;
@@ -29,6 +30,9 @@ public class currentloc extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.getSupportActionBar().setTitle("Mark Location");
+        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getWindow().setStatusBarColor(ContextCompat.getColor(LocationMap.this,R.color.colorAccent));
         setContentView(R.layout.activity_currentloc);
 
 
@@ -38,7 +42,7 @@ public class currentloc extends AppCompatActivity {
         //Initialize fused location
         client= LocationServices.getFusedLocationProviderClient(this);
 
-        if(ActivityCompat.checkSelfPermission(currentloc.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+        if(ActivityCompat.checkSelfPermission(LocationMap.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
             //When Permission granted
             //Call method
             getCurrentLocation();
@@ -46,7 +50,7 @@ public class currentloc extends AppCompatActivity {
         }else {
             //When permission denied
             //Request permission
-            ActivityCompat.requestPermissions(currentloc.this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},44);
+            ActivityCompat.requestPermissions(LocationMap.this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},44);
         }
 
     }
@@ -83,8 +87,9 @@ public class currentloc extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if(requestCode == 44){
-            if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 44) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 //When permission granted
                 //Call method
                 getCurrentLocation();

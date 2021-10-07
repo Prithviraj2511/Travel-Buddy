@@ -13,11 +13,13 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.Viewho
 
     private Context context;
     private ArrayList<LocationModel> locationModelArrayList;
+    private OnLocationListener onLocationListener;
 
     // Constructor
-    public LocationAdapter(Context context, ArrayList<LocationModel> locationModelArrayList) {
+    public LocationAdapter(Context context, ArrayList<LocationModel> locationModelArrayList,OnLocationListener onLocationListener) {
         this.context = context;
         this.locationModelArrayList = locationModelArrayList;
+        this.onLocationListener=onLocationListener;
     }
 
     @NonNull
@@ -25,7 +27,7 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.Viewho
     public LocationAdapter.Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // to inflate the layout for each item of recycler view.
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_layout, parent, false);
-        return new Viewholder(view);
+        return new Viewholder(view,onLocationListener);
     }
 
     @Override
@@ -46,14 +48,26 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.Viewho
 
     // View holder class for initializing of
     // your views such as TextView and Imageview.
-    public class Viewholder extends RecyclerView.ViewHolder {
+    public class Viewholder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView locationNameTV, locationRatingTV,locationDescTV;
-
-        public Viewholder(@NonNull View itemView) {
+        private OnLocationListener onLocationListener;
+        public Viewholder(@NonNull View itemView,OnLocationListener onLocationListener) {
             super(itemView);
             locationDescTV = itemView.findViewById(R.id.idTVLocationDesc);
             locationNameTV = itemView.findViewById(R.id.idTVLocationName);
             locationRatingTV = itemView.findViewById(R.id.idTVLocationRating);
+            this.onLocationListener=onLocationListener;
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            onLocationListener.onLocationClick(getAdapterPosition());
         }
     }
+
+    public interface OnLocationListener{
+        void onLocationClick(int pos);
+    }
+
 }

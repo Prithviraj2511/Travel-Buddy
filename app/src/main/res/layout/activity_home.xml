@@ -18,7 +18,7 @@
         app:srcCompat="@drawable/food" />
 
     <ImageView
-        android:id="@+id/PlacesImg"
+        android:id="@+id/placesImg"
         android:layout_width="125dp"
         android:layout_height="125dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -32,7 +32,6 @@
         android:id="@+id/topPicksImg"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:onClick="getTopPicks"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="0.75"
@@ -50,7 +49,7 @@
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.19999999"
+        app:layout_constraintVertical_bias="0.20999998"
         app:srcCompat="@drawable/shopping" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -99,12 +98,12 @@
         android:layout_height="wrap_content"
         android:text="Places"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/PlacesImg"
-        app:layout_constraintStart_toStartOf="@+id/PlacesImg"
-        app:layout_constraintTop_toBottomOf="@+id/PlacesImg" />
+        app:layout_constraintEnd_toEndOf="@+id/placesImg"
+        app:layout_constraintStart_toStartOf="@+id/placesImg"
+        app:layout_constraintTop_toBottomOf="@+id/placesImg" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/getLocationBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
