@@ -9,9 +9,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-public class HomeActivity extends AppCompatActivity {
-    private Button getLocationBtn;
+import com.google.firebase.auth.FirebaseAuth;
 
+public class HomeActivity extends AppCompatActivity {
+    private Button getLocationBtn,logoutBtn;
     private ImageView topPicksImg,shoppingImg,placesImg,foodImg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +20,8 @@ public class HomeActivity extends AppCompatActivity {
         this.getSupportActionBar().hide();
         getWindow().setStatusBarColor(ContextCompat.getColor(HomeActivity.this,R.color.colorAccent));
         setContentView(R.layout.activity_home);
+
+        logoutBtn=(Button) findViewById(R.id.logoutBtn);
         topPicksImg = (ImageView) findViewById(R.id.topPicksImg);
         shoppingImg = (ImageView) findViewById(R.id.shoppingImg);
         placesImg = (ImageView) findViewById(R.id.placesImg);
@@ -37,6 +40,15 @@ public class HomeActivity extends AppCompatActivity {
 
         });
         getLocationBtn = (Button) findViewById(R.id.getLocationBtn);
+
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(HomeActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
         getLocationBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

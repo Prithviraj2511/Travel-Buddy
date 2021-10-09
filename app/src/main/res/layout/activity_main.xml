@@ -30,7 +30,7 @@
         app:srcCompat="@drawable/appname" />
 
     <EditText
-        android:id="@+id/passwordInput"
+        android:id="@+id/signInPassword"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="40dp"
@@ -40,16 +40,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mobileNoInput" />
+        app:layout_constraintTop_toBottomOf="@+id/signInEmail" />
 
     <EditText
-        android:id="@+id/mobileNoInput"
+        android:id="@+id/signInEmail"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="100dp"
         android:ems="10"
-        android:hint="Mobile no."
-        android:inputType="textPersonName|phone"
+        android:hint="Email"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LoginTextView" />

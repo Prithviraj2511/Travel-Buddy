@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "984261527195",
+    "firebase_url": "https://mylogin-61234.firebaseio.com",
+    "project_id": "mylogin-61234",
+    "storage_bucket": "mylogin-61234.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:984261527195:android:39bd668126f8dd553c283e",
+        "android_client_info": {
+          "package_name": "com.example.touristguide"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "984261527195-atflhglmbhum7t3ft3i6a1grpleh37rl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCD26iv6Q-AuzVyvt0YyC_X87V_eEbar8Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "984261527195-atflhglmbhum7t3ft3i6a1grpleh37rl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
