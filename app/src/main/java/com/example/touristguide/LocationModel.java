@@ -1,19 +1,25 @@
 package com.example.touristguide;
 
 public class LocationModel {
-
+    private String location_id;
     private String location_name;
     private float location_rating;
     private String location_desc;
 
     // Constructor
-    public LocationModel(String location_name, float location_rating, String location_desc) {
+    public LocationModel(String location_id,String location_name, float location_rating, String location_desc) {
+        this.location_id=location_id;
         this.location_name = location_name;
         this.location_rating = location_rating;
         this.location_desc = location_desc;
     }
 
     // Getter and Setter
+
+    public String getLocation_id() {
+        return location_id;
+    }
+
     public String getLocation_name() {
         return location_name;
     }

@@ -18,7 +18,7 @@
         app:srcCompat="@drawable/food" />
 
     <ImageView
-        android:id="@+id/placesImg"
+        android:id="@+id/natureImg"
         android:layout_width="125dp"
         android:layout_height="125dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -26,7 +26,7 @@
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/places" />
+        app:srcCompat="@drawable/nature" />
 
     <ImageView
         android:id="@+id/topPicksImg"
@@ -96,11 +96,11 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Places"
+        android:text="Nature"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/placesImg"
-        app:layout_constraintStart_toStartOf="@+id/placesImg"
-        app:layout_constraintTop_toBottomOf="@+id/placesImg" />
+        app:layout_constraintEnd_toEndOf="@+id/natureImg"
+        app:layout_constraintStart_toStartOf="@+id/natureImg"
+        app:layout_constraintTop_toBottomOf="@+id/natureImg" />
 
     <Button
         android:id="@+id/getLocationBtn"

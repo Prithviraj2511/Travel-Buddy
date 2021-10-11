@@ -24,7 +24,7 @@ public class HomeActivity extends AppCompatActivity {
         logoutBtn=(Button) findViewById(R.id.logoutBtn);
         topPicksImg = (ImageView) findViewById(R.id.topPicksImg);
         shoppingImg = (ImageView) findViewById(R.id.shoppingImg);
-        placesImg = (ImageView) findViewById(R.id.placesImg);
+        placesImg = (ImageView) findViewById(R.id.natureImg);
         foodImg = (ImageView) findViewById(R.id.foodImg);
 
         topPicksImg.setOnClickListener(new View.OnClickListener() {
@@ -76,7 +76,7 @@ public class HomeActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         v.animate().alpha(1);
-                        getPlaces();
+                        getPlace();
                     }
                 });
             }
@@ -100,6 +100,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private void getTopPicks(){
         Intent intent = new Intent(this, LocationListing.class);
+        intent.putExtra("location_type", "top");
         startActivity(intent);
     }
     private void getMap() {
@@ -108,14 +109,17 @@ public class HomeActivity extends AppCompatActivity {
     }
     private void getShopping(){
         Intent intent = new Intent(this, LocationListing.class);
+        intent.putExtra("location_type", "shopping");
         startActivity(intent);
     }
-    private void getPlaces(){
+    private void getPlace(){
         Intent intent = new Intent(this, LocationListing.class);
+        intent.putExtra("location_type", "natural place");
         startActivity(intent);
     }
     private void getFood(){
         Intent intent = new Intent(this, LocationListing.class);
+        intent.putExtra("location_type", "food");
         startActivity(intent);
     }
 }
