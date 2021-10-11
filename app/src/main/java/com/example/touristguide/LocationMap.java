@@ -72,11 +72,9 @@ public class LocationMap extends AppCompatActivity {
                             //Create marker options
                             MarkerOptions options = new MarkerOptions().position(latLng).title("I am here");
                             //Zoom map
-                            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,10));
+                            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,15));
                             //Add marker on map
                             googleMap.addMarker(options);
-
-
                         }
                     });
                 }
