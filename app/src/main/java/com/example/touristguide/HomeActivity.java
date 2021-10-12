@@ -8,18 +8,26 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
 public class HomeActivity extends AppCompatActivity {
     private Button getLocationBtn,logoutBtn;
     private ImageView topPicksImg,shoppingImg,placesImg,foodImg;
+    Double location_lat=0.0;
+    Double location_lng=0.0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.getSupportActionBar().hide();
         getWindow().setStatusBarColor(ContextCompat.getColor(HomeActivity.this,R.color.colorAccent));
         setContentView(R.layout.activity_home);
+
+        Intent intent = getIntent();
+        location_lat = intent.getDoubleExtra("location_lat",0.0);
+        location_lng=intent.getDoubleExtra("location_lng",0.0);
+
 
         logoutBtn=(Button) findViewById(R.id.logoutBtn);
         topPicksImg = (ImageView) findViewById(R.id.topPicksImg);
@@ -33,7 +41,13 @@ public class HomeActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         v.animate().alpha(1);
-                        getTopPicks();
+                        if(location_lat==0.0 && location_lng==0.0){
+                            Toast.makeText(HomeActivity.this,"Select location first",Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            getTopPicks();
+                        }
+
                     }
                 });
             }
@@ -64,7 +78,12 @@ public class HomeActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         v.animate().alpha(1);
-                        getShopping();
+                        if(location_lat==0.0 && location_lng==0.0){
+                            Toast.makeText(HomeActivity.this,"Select location first",Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            getShopping();
+                        }
                     }
                 });
             }
@@ -76,7 +95,13 @@ public class HomeActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         v.animate().alpha(1);
-                        getPlace();
+                        if(location_lat==0.0 && location_lng==0.0){
+                            Toast.makeText(HomeActivity.this,"Select location first",Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            getPlace();
+                        }
+
                     }
                 });
             }
@@ -88,7 +113,13 @@ public class HomeActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         v.animate().alpha(1);
-                        getFood();
+                        if(location_lat==0.0 && location_lng==0.0){
+                            Toast.makeText(HomeActivity.this,"Select location first",Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            getFood();
+                        }
+
                     }
                 });
             }
@@ -101,6 +132,8 @@ public class HomeActivity extends AppCompatActivity {
     private void getTopPicks(){
         Intent intent = new Intent(this, LocationListing.class);
         intent.putExtra("location_type", "top");
+        intent.putExtra("location_latitude", location_lat);
+        intent.putExtra("location_longitude",location_lng);
         startActivity(intent);
     }
     private void getMap() {
@@ -110,15 +143,21 @@ public class HomeActivity extends AppCompatActivity {
     private void getShopping(){
         Intent intent = new Intent(this, LocationListing.class);
         intent.putExtra("location_type", "shopping");
+        intent.putExtra("location_latitude", location_lat);
+        intent.putExtra("location_longitude",location_lng);
         startActivity(intent);
     }
     private void getPlace(){
         Intent intent = new Intent(this, LocationListing.class);
+        intent.putExtra("location_latitude", location_lat);
+        intent.putExtra("location_longitude",location_lng);
         intent.putExtra("location_type", "natural place");
         startActivity(intent);
     }
     private void getFood(){
         Intent intent = new Intent(this, LocationListing.class);
+        intent.putExtra("location_latitude", location_lat);
+        intent.putExtra("location_longitude",location_lng);
         intent.putExtra("location_type", "food");
         startActivity(intent);
     }

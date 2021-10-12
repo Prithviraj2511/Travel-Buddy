@@ -10,6 +10,7 @@ import android.os.Bundle;
 
 import java.util.ArrayList;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -37,13 +38,16 @@ public class LocationListing extends AppCompatActivity implements LocationAdapte
 
         Intent intent = getIntent();
         String location_type = intent.getStringExtra("location_type");
+
         this.getSupportActionBar().setTitle(location_type);
-        double userLat=18.99588389385923;
-        double userLng=73.12464409663677;
+        double userLat=intent.getDoubleExtra("location_latitude",0.0);
+        double userLng=intent.getDoubleExtra("location_longitude",0.0);
 
         locationRV = findViewById(R.id.idRVLocation);
         locationModelArrayList = new ArrayList<>();
         LocationAdapter locationAdapter = new LocationAdapter(LocationListing.this, locationModelArrayList,LocationListing.this);
+
+
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("TouristBuddy")
@@ -90,6 +94,14 @@ public class LocationListing extends AppCompatActivity implements LocationAdapte
         startActivity(intent);
     }
 
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        // Handle item selection
+        finish();
+        return true;
+    }
 
     public static double caldistance(double lat1, double lat2, double lon1,
                                   double lon2, double el1, double el2) {
