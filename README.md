@@ -15,9 +15,9 @@ Android app that helps the user as a guide to travel around in a city. To access
 <em>Login Screen</em> | <em>Registration Screen</em> |
 <kbd> <img src="./readme%20Images/picture%20(7).jpeg" height="400"> </kbd> | <kbd> <img src="./readme%20Images/picture%20(8).jpeg" height="400"> </kbd> |
 <em>Splash Screen</em> | <em>Home screen</em> |
-<kbd> <img src="./readme%20Images/picture%20(5).jpeg" height="400"> </kbd> | <kbd> <img src="./readme%20Images/picture%20(1).jpeg" height="400"> </kbd> |
+<kbd> <img src="./readme%20Images/picture%20(5).jpeg" height="400"> </kbd> | <kbd> <img src="./readme%20Images/picture%20(4).jpeg" height="400"> </kbd> |
 <em>Mark Location</em> | <em>Shopping listing</em> |
-<kbd> <img src="./readme%20Images/picture%20(4).jpeg" height="400"> </kbd> | <kbd> <img src="./readme%20Images/picture%20(6).jpeg" height="400"> </kbd> |
+<kbd> <img src="./readme%20Images/picture%20(1).jpeg" height="400"> </kbd> | <kbd> <img src="./readme%20Images/picture%20(6).jpeg" height="400"> </kbd> |
 <em>Natural Places</em> | <em>Details Screen</em> |
 
 Want to know more 🕵️ [click here](./Report.pdf)
